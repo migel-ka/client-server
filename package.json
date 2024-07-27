@@ -1,0 +1,22 @@
+{
+  "name": "client-server",
+  "version": "1.0.0",
+  "description": " Клиентское веб-приложение для отображения списков пользователей с использованием публичного API JSONPlaceholder",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/migel-ka/client-server.git"
+  },
+  "author": "Migelka_Sid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/migel-ka/client-server/issues"
+  },
+  "homepage": "https://github.com/migel-ka/client-server#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
