@@ -1,4 +1,4 @@
-const userList = document.querySelector("#accordionFlushExample");
+const userList = document.querySelector("#userList");
 
 async function getUser (){
     let response = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -8,16 +8,23 @@ async function getUser (){
 
     for (key in user) {
         const userHtml = `
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            ${user[key].name} (${user[key].username})
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">${user[key].email} ${user[key].phone} ${user[key].website}</div>
-          </div>
-        </div>`;
+         <tr>
+          <th scope="row">${user[key].id}</th>
+          <td>${user[key].name}</td>
+          <td>${user[key].username}</td>
+          <td><a href="mailto:${user[key].email}">${user[key].email}</a></td>
+          <td><a href= "tel:${user[key].phone}">${user[key].phone}</a></td>
+          <td><a href="${user[key].website}">${user[key].website}</a></td>
+          <td>${user[key].company.name}, ${user[key].company.catchPhrase}, ${user[key].company.bs}</td>
+          <td>
+            <div class="card" style="width: 18rem;">
+              <img src="https://static-maps.yandex.ru/v1?ll=${user[key].address.geo.lat},${user[key].address.geo.lng}&size=200,100&z=13&pt=37.620070,55.753630,pmwtm1~37.64,55.76363,pmwtm99&apikey=84310c9b-ee2c-4c30-8d2f-3ec63d115580" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">${user[key].address.street}, ${user[key].address.suite}, ${user[key].address.city}, ${user[key].address.zipcode}</p>
+              </div>
+            </div>
+          </td>
+        </tr>`;
        userList.insertAdjacentHTML ('beforeend', userHtml);  
         console.log(user [key]);
     }
